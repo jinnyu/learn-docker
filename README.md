@@ -147,27 +147,27 @@
      
    - 容器命令
      - docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
-       - 解释: 新建并启动容器
-       - 子命令:
-         - --name ${container name} : 为容器指定一个名字
-         - -d: 后台模式运行容器, 并返回容器ID.
-         - -i: 交互模式运行容器, 通常和 `-t` 一起使用.
-         - -P: 随机分配短裤
-         - -p: 指定端口
-           - ip:host port: container port
-           - ip::container port
-           - host port: container port
-           - container port
+        - 解释: 新建并启动容器
+        - 子命令:
+          - --name ${container name} : 为容器指定一个名字
+          - -d: 后台模式运行容器, 并返回容器ID.
+          - -i: 交互模式运行容器, 通常和 `-t` 一起使用.
+          - -P: 随机分配短裤
+          - -p: 指定端口
+            - ip:host port: container port
+            - ip::container port
+            - host port: container port
+            - container port
      - docker ps ${sub cmd}
-       - 解释: 同 `Linux`的 `ps`
-       - 子命令:
-         - -a --all : 显示所有容器(默认只显示正在运行的容器)
-         - -l --latest : 最后创建的容器
-         - -n --last ${num} : 最后创建的${num}的容器
-         - -q : 只显示镜像ID
+        - 解释: 同 `Linux`的 `ps`
+        - 子命令:
+          - -a --all : 显示所有容器(默认只显示正在运行的容器)
+          - -l --latest : 最后创建的容器
+          - -n --last ${num} : 最后创建的${num}的容器
+          - -q : 只显示镜像ID
      - docker start ${container id / container name}
-       - 解释: 启动一个容器
+        - 解释: 启动一个容器
      - docker resart
-       - 解释: 重启一个容器
+        - 解释: 重启一个容器
 
 <!-- #### Docker高级篇 -->
