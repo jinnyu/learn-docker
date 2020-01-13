@@ -1,8 +1,8 @@
 ## Docker
 
 #### 参考方向
-* Java  - Spring / Spring Boot / Spring MVC / Spring Data / Mybatis / Dubbo / RocketMQ ...
-* Go - Swarm / Compose / Machine / mesos / K8S ... (CI/CD - jenkinds整合)
+- Java  - Spring / Spring Boot / Spring MVC / Spring Data / Mybatis / Dubbo / RocketMQ ...
+- Go - Swarm / Compose / Machine / mesos / K8S ... (CI/CD - jenkinds整合)
 
 #### Docker基础篇 (2020-01-13)
 1. 理念: 在任何地方构建, 发布并运行任何应用.  
@@ -11,14 +11,14 @@
 
 3. 三要素:  
      - 仓库: 集中存放镜像的场所.
-       * 仓库注册服务器 ( `Registry` ) 和仓库 ( `Repository` ) 是有区别的.  
+       - 仓库注册服务器 ( `Registry` ) 和仓库 ( `Repository` ) 是有区别的.  
         - 仓库注册服务器上可以存放多个仓库
         - 仓库中存放多个镜像, 每个镜像有不同的标签 ( `Tag` ).
         - 仓库分为公开仓库 ( `Public` ) 和私有仓库 ( `Private` ) 两种形式.
-          * 最大的公开仓库是 [Docker Hub](https://hub.docker.com).
+          - 最大的公开仓库是 [Docker Hub](https://hub.docker.com).
           - 国内比较流行的仓库
-            * 阿里云 (https://xxx.mirror.aliyuncs.com) (可存放私有镜像, 需自行[注册](https://promotion.aliyun.com/ntms/act/kubernetes.html))
-            * 网易云 (http://hub-mirror.c.163.com)
+            - 阿里云 (https://xxx.mirror.aliyuncs.com) (可存放私有镜像, 需自行[注册](https://promotion.aliyun.com/ntms/act/kubernetes.html))
+            - 网易云 (http://hub-mirror.c.163.com)
         - 私有仓库需自行搭建, 目前比较流行的私有仓库是[Harbor](https://github.com/goharbor/harbor).
      - 镜像: 一个只读的模板. 可以用来创建Docker容器. 一个镜像可以创建很多容器.
      - 容器: 容器是镜像创建的运行实例.
@@ -110,45 +110,45 @@
 
 8. 常用命令:
    1. 帮助命令
-      + docker version
-      + docker info
-      + docker --help
+      - docker version
+      - docker info
+      - docker --help
       
    2. 镜像命令
-      + docker images ${sub cmd}
-        * 解释: 列出本地镜像 (同一仓库源可以有多个 `TAG`, 代表这个仓库源的不同版本, 可以使用 `REPOSITORY:TAG` 来定义不用的镜像.)
+      - docker images ${sub cmd}
+        - 解释: 列出本地镜像 (同一仓库源可以有多个 `TAG`, 代表这个仓库源的不同版本, 可以使用 `REPOSITORY:TAG` 来定义不用的镜像.)
           - REPOSITORY: 镜像仓库源
           - TAG: 镜像标签
           - IMAGE ID: 镜像ID
           - CREATED: 镜像创建时间
           - SIZE: 镜像大小
-        * 子命令:
+        - 子命令:
           - -a: 列出本地所有的镜像(含中间映象层)
           - -q: 只显示镜像ID
           - --digests: 显示镜像的摘要(sha256)信息
           - --no-trunc: 显示镜像的完整信息
-      + docker search ${sub cmd} ${image name}
-        * 解释: 搜索DockerHub上的镜像
+      - docker search ${sub cmd} ${image name}
+        - 解释: 搜索DockerHub上的镜像
           - NAME: 镜像名
           - DESCRIPTION: 镜像描述
           - STARS: 星标数 (等同于 `Github` 的星)
           - OFFICIAL: 是否为官方镜像
           - AUTOMATED: 是否为自动构建的
-        * 子命令:
+        - 子命令:
           - -s: 显示大于指定星数的镜像
           - --no-trunc: 显示镜像的完整信息
           - --automated: 只显示自动构建类型的镜像
-      + docker pull ${image name}:${tag}
-        * 解释: 拉取指定镜像
-      + docker rmi ${sub cmd} ${image name / image id}:${tag}
-        * 解释: 删除指定镜像
-        * 子命令:
+      - docker pull ${image name}:${tag}
+        - 解释: 拉取指定镜像
+      - docker rmi ${sub cmd} ${image name / image id}:${tag}
+        - 解释: 删除指定镜像
+        - 子命令:
           - -f: 强制删除
       
    3. 容器命令
-      + docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
-        * 解释: 新建并启动容器
-        * 子命令:
+      - docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
+        - 解释: 新建并启动容器
+        - 子命令:
           - --name ${container name} : 为容器指定一个名字
           - -d: 后台模式运行容器, 并返回容器ID.
           - -i: 交互模式运行容器, 通常和 `-t` 一起使用.
@@ -158,16 +158,16 @@
             - ip::container port
             - host port: container port
             - container port
-      + docker ps ${sub cmd}
-        * 解释: 同 `Linux`的 `ps`
-        * 子命令:
+      - docker ps ${sub cmd}
+        - 解释: 同 `Linux`的 `ps`
+        - 子命令:
           - -a --all : 显示所有容器(默认只显示正在运行的容器)
           - -l --latest : 最后创建的容器
           - -n --last ${num} : 最后创建的${num}的容器
           - -q : 只显示镜像ID
-      + docker start ${container id / container name}
-        * 解释: 启动一个容器
-      + docker resart
-        * 解释: 重启一个容器
+      - docker start ${container id / container name}
+        - 解释: 启动一个容器
+      - docker resart
+        - 解释: 重启一个容器
 
 <!-- #### Docker高级篇 -->
