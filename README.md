@@ -66,7 +66,8 @@
 
 5. 安装:
    - CentOS: (yum / rpm) 参考[官方教程](https://docs.docker.com/install/linux/docker-ce/centos/)
-   - 通用安装: 
+   - 通用安装:  
+
    ```
    curl -fsSL https://get.docker.com -o get-docker.sh
    sudo sh get-docker.sh --mirror Aliyun/AzureChinaCloud
@@ -89,16 +90,17 @@ sudo systemctl restart docker
 ```
 
 7. `Docker` 为什么比 `VM` 快?
-    - `Docker` 有着比 `VM` 更少的抽象层(`Hypervisor`).  
-      运行在 `Docker` 上的程序是直接使用宿主机的物理硬件资源,  
-      因此在 `CPU` 和 `RAM` 的运行效率上会明显优势.
-    - `Docker` 利用的宿主机(`Host`)内核, 而不需要 `GuestOS`.  
-      - 当新建一个 `Docker` 容器时, `Docker` 不需要和虚拟机一样重新加载一个操作系统内核.  
-        因而避免了引寻, 加载操作系统内核等一些比较费时费资源的过程.
-      - 当新建一个 `VM` 时, 需要加载 `GuestOS` 进行硬件虚拟化并初始化 `GuestOS` 的内核,
-        在资源分配和调度上耗时较长.
+   - `Docker` 有着比 `VM` 更少的抽象层(`Hypervisor`).  
+     运行在 `Docker` 上的程序是直接使用宿主机的物理硬件资源,  
+     因此在 `CPU` 和 `RAM` 的运行效率上会明显优势.
+   - `Docker` 利用的宿主机(`Host`)内核, 而不需要 `GuestOS`.  
+     - 当新建一个 `Docker` 容器时, `Docker` 不需要和虚拟机一样重新加载一个操作系统内核.  
+       因而避免了引寻, 加载操作系统内核等一些比较费时费资源的过程.
+     - 当新建一个 `VM` 时, 需要加载 `GuestOS` 进行硬件虚拟化并初始化 `GuestOS` 的内核,
+       在资源分配和调度上耗时较长.
 
-   |            |      Docker容器       |         虚拟机(VM)         |
+   `Docker` 和 `VM` 比较
+   |     -      |      Docker容器       |         虚拟机(VM)         |
    | :--------: | :-------------------: | :------------------------: |
    |  操作系统  |     与宿主机共享      |    宿主机上运行虚拟机OS    |
    |  存储大小  | 镜像小,便于存储于传输 |   镜像庞大(vmdk, vdi等)    |
