@@ -67,11 +67,10 @@
 5. 安装:
    - CentOS: (yum / rpm) 参考[官方教程](https://docs.docker.com/install/linux/docker-ce/centos/)
    - 通用安装:  
-
-   ```
-   curl -fsSL https://get.docker.com -o get-docker.sh
-   sudo sh get-docker.sh --mirror Aliyun/AzureChinaCloud
-   ```
+     ```
+     curl -fsSL https://get.docker.com -o get-docker.sh
+     sudo sh get-docker.sh --mirror Aliyun/AzureChinaCloud
+     ```
 
 6. 配置国内镜像:  
    ```
