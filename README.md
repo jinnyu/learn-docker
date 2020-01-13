@@ -92,7 +92,7 @@
    - `Docker` 有着比 `VM` 更少的抽象层(`Hypervisor`).  
      运行在 `Docker` 上的程序是直接使用宿主机的物理硬件资源,  
      因此在 `CPU` 和 `RAM` 的运行效率上会明显优势.
-   - `Docker` 利用的宿主机(`Host`)内核, 而不需要 `GuestOS`.  
+   - `Docker` 利用的宿主机 (`Host`) 内核, 而不需要 `GuestOS`.  
      - 当新建一个 `Docker` 容器时, `Docker` 不需要和虚拟机一样重新加载一个操作系统内核.  
        因而避免了引寻, 加载操作系统内核等一些比较费时费资源的过程.
      - 当新建一个 `VM` 时, 需要加载 `GuestOS` 进行硬件虚拟化并初始化 `GuestOS` 的内核,
@@ -110,12 +110,12 @@
 
 8. 常用命令:
    1. 帮助命令
-      - docker version
-      - docker info
-      - docker --help
+      + docker version
+      + docker info
+      + docker --help
       
    2. 镜像命令
-      - docker images ${sub cmd}
+      + docker images ${sub cmd}
         * 解释: 列出本地镜像 (同一仓库源可以有多个 `TAG`, 代表这个仓库源的不同版本, 可以使用 `REPOSITORY:TAG` 来定义不用的镜像.)
           - REPOSITORY: 镜像仓库源
           - TAG: 镜像标签
@@ -127,7 +127,7 @@
           - -q: 只显示镜像ID
           - --digests: 显示镜像的摘要(sha256)信息
           - --no-trunc: 显示镜像的完整信息
-      - docker search ${sub cmd} ${image name}
+      + docker search ${sub cmd} ${image name}
         * 解释: 搜索DockerHub上的镜像
           - NAME: 镜像名
           - DESCRIPTION: 镜像描述
@@ -138,15 +138,15 @@
           - -s: 显示大于指定星数的镜像
           - --no-trunc: 显示镜像的完整信息
           - --automated: 只显示自动构建类型的镜像
-      - docker pull ${image name}:${tag}
+      + docker pull ${image name}:${tag}
         * 解释: 拉取指定镜像
-      - docker rmi ${sub cmd} ${image name / image id}:${tag}
+      + docker rmi ${sub cmd} ${image name / image id}:${tag}
         * 解释: 删除指定镜像
         * 子命令:
           - -f: 强制删除
       
    3. 容器命令
-      - docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
+      + docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
         * 解释: 新建并启动容器
         * 子命令:
           - --name ${container name} : 为容器指定一个名字
@@ -158,7 +158,7 @@
             - ip::container port
             - host port: container port
             - container port
-      - docker ps ${sub cmd}
+      + docker ps ${sub cmd}
         * 解释: 同 `Linux`的 `ps`
         * 子命令:
           - -a --all : 显示所有容器(默认只显示正在运行的容器)
