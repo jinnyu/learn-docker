@@ -73,21 +73,21 @@
    sudo sh get-docker.sh --mirror Aliyun/AzureChinaCloud
    ```
 
-6. 配置国内镜像:
-```
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{ 
-    "registry-mirrors": 
-        [ 
-            "http://hub-mirror.c.163.com", 
-            "https://xxx.mirror.aliyuncs.com" 
-        ]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-```
+6. 配置国内镜像:  
+   ```
+   sudo mkdir -p /etc/docker
+   sudo tee /etc/docker/daemon.json <<-'EOF'
+   { 
+       "registry-mirrors": 
+           [ 
+               "http://hub-mirror.c.163.com", 
+               "https://xxx.mirror.aliyuncs.com" 
+           ]
+   }
+   EOF
+   sudo systemctl daemon-reload
+   sudo systemctl restart docker
+   ```
 
 7. `Docker` 为什么比 `VM` 快?
    - `Docker` 有着比 `VM` 更少的抽象层(`Hypervisor`).  
