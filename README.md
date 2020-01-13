@@ -165,9 +165,9 @@
           - -l --latest : 最后创建的容器
           - -n --last ${num} : 最后创建的${num}的容器
           - -q : 只显示镜像ID
-      - docker start ${container id / container name}
+      + docker start ${container id / container name}
         * 解释: 启动一个容器
-      - docker resart
+      + docker resart
         * 解释: 重启一个容器
 
 <!-- #### Docker高级篇 -->
