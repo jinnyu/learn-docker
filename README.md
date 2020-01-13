@@ -28,8 +28,8 @@
     <div style="display: flex; width: 100%">
         <div style="width: 15%; margin-left: 20px">
             <!-- 本地图片, 垃圾Gitea无法识别相对路径图片 -->
-            <!-- <img src="./assets/docker-logo.png" alt="Docker logo"> -->
-            <img src="https://gitea.frp.jinnyu.app/jinnyu/docker/raw/branch/master/assets/docker-logo.png" alt="Docker logo">
+            <img src="./assets/docker-logo.png" alt="Docker logo">
+            <!-- <img src="https://gitea.frp.jinnyu.app/jinnyu/docker/raw/branch/master/assets/docker-logo.png" alt="Docker logo"> -->
         </div>
         <div style="width: 85%; margin-left: 20px">
             <p>从 <code>Java</code> 和 logo 来看 <code>Docker</code> - 一条蓝色的鲸鱼, 背着很多集装箱.</p>
