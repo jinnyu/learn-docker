@@ -67,6 +67,7 @@
     </div>
 
 5. 安装:
+
    - CentOS: (yum / rpm) 参考[官方教程](https://docs.docker.com/install/linux/docker-ce/centos/)
    - 通用安装:  
      ```
@@ -75,6 +76,7 @@
      ```
 
 6. 配置国内镜像:  
+
    ```
    sudo mkdir -p /etc/docker
    sudo tee /etc/docker/daemon.json <<-'EOF'
@@ -91,6 +93,7 @@
    ```
 
 7. `Docker` 为什么比 `VM` 快?
+
    - `Docker` 有着比 `VM` 更少的抽象层(`Hypervisor`).  
      运行在 `Docker` 上的程序是直接使用宿主机的物理硬件资源,  
      因此在 `CPU` 和 `RAM` 的运行效率上会明显优势.
@@ -111,13 +114,14 @@
         |  部署速度  |      快速 (秒级)      |       较慢 (分钟级)        |
 
 8. 常用命令:
+
    - 帮助命令
      - docker version
      - docker info
      - docker --help
       
    - 镜像命令
-     - docker images ${sub cmd}
+     - docker images \${sub cmd}
        - 解释: 列出本地镜像 (同一仓库源可以有多个 `TAG`, 代表这个仓库源的不同版本, 可以使用 `REPOSITORY:TAG` 来定义不用的镜像.)
          - REPOSITORY: 镜像仓库源
          - TAG: 镜像标签
@@ -129,7 +133,7 @@
          - -q: 只显示镜像ID
          - --digests: 显示镜像的摘要(sha256)信息
          - --no-trunc: 显示镜像的完整信息
-     - docker search ${sub cmd} ${image name}
+     - docker search \${sub cmd} \${image name}
        - 解释: 搜索DockerHub上的镜像
          - NAME: 镜像名
          - DESCRIPTION: 镜像描述
@@ -140,18 +144,18 @@
          - -s: 显示大于指定星数的镜像
          - --no-trunc: 显示镜像的完整信息
          - --automated: 只显示自动构建类型的镜像
-     - docker pull ${image name}:${tag}
+     - docker pull \${image name}:\${tag}
        - 解释: 拉取指定镜像
-     - docker rmi ${sub cmd} ${image name / image id}:${tag}
+     - docker rmi \${sub cmd} \${image name / image id}:\${tag}
        - 解释: 删除指定镜像
        - 子命令:
          - -f: 强制删除
      
    - 容器命令
-     - docker run ${sub cmd} ${image name / image id} ${cmd} ${arg}
+     - docker run \${sub cmd} \${image name / image id} \${cmd} \${arg}
         - 解释: 新建并启动容器
         - 子命令:
-          - --name ${container name} : 为容器指定一个名字
+          - --name \${container name} : 为容器指定一个名字
           - -d: 后台模式运行容器, 并返回容器ID.
           - -i: 交互模式运行容器, 通常和 `-t` 一起使用.
           - -P: 随机分配端口
@@ -160,16 +164,28 @@
             - ip::container port
             - host port: container port
             - container port
-     - docker ps ${sub cmd}
+     - docker start \${container id}
+        - 解释: 启动一个容器
+     - docker stop \${container id}
+        - 解释: 停止一个容器
+     - docker resart
+        - 解释: 重启一个容器
+     - docker kill \${container id}
+        - 解释: 强制停止一个容器
+     - docker ps \${sub cmd}
         - 解释: 同 `Linux`的 `ps`
         - 子命令:
           - -a --all : 显示所有容器(默认只显示正在运行的容器)
           - -l --latest : 最后创建的容器
-          - -n --last ${num} : 最后创建的${num}的容器
+          - -n --last \${num} : 最后创建的\${num}的容器
           - -q : 只显示镜像ID
-     - docker start ${container id / container name}
-        - 解释: 启动一个容器
-     - docker resart
-        - 解释: 重启一个容器
+     - docker rm \${container id}
+        - 解释: 删除一个容器
+        - 子命令:
+          - -f 强制删除一个运行中的容器
+     - docker rmi \${image}
+        - 解释: 删除一个镜像
+        - 子命令:
+          - -f 强制删除一个镜像
 
 <!-- #### Docker高级篇 -->
