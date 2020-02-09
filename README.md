@@ -216,6 +216,8 @@
       - -i: 交互模式运行容器, 通常和 `-t` 一起使用.
       - -t: 以伪终端模式运行
       - -d: 后台模式运行容器, 并返回容器ID.
+      - -v: 指定数据卷 (-v /宿主机文件路径(绝对路径):/容器文件绝对路径[:文件读写权限])
+      - --volumes-from: 容器间共享数据卷 (--volumes-from \${name})
       - -P: 随机分配端口
       - -p: 指定端口
         - ip:host port: container port
@@ -306,3 +308,25 @@
 
 ##### `Docker` 容器数据卷
 
+卷是文件或目录, 存在于一个活多个容器中, 由 `Docker` 挂载到容器上.  
+卷不属于 `UnionFS` , 所以能绕过 `UnionFS` 提供一些用于从持续存储活共享数据的功能.  
+卷的设计目的就是数据的持久化, 完全独立于容器的生命周期, 因此 `Docker` 不会早容器删除时删除其挂载的数据卷.
+
+特点: 
+  1. 数据卷可以在容器间共享或者重用.
+  2. 卷的更改直接生效.
+  3. 数据卷的更改不会包含在镜像的更新中.
+  4. 数据卷的声明周期一直持续到没有容器使用它为止.
+
+挂载方式:
+  1. 命令行挂载 
+     ```
+     docker run -v /host/folder:/target/folder ...
+     ```
+  2. `DockerFile` 挂载
+     ```
+     ... other config ...
+     VOLUME ["/target/folder1", "/target/folder2" ... ]
+     ... other config ...
+     ```
+     宿主机数据卷可以用 `docker inspect ${container id}` 来查询.
