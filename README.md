@@ -395,7 +395,7 @@
 7. `ENV` 用来在构建镜像中设置环境变量.
    - 格式 (支持 `$` 引用)
      ```
-     ENV JAVA_HOME /opt/software/jdk
+     ENV JAVA_HOME /opt/software/jdk  
      ENV PATH $PATH:$JAVA_HOME/bin
      ```
 8. `ADD` 将宿主机的文件复制到镜像中, 且 `ADD` 命令会自动处理 `URL` 和解压 `tar` 包.
