@@ -280,12 +280,12 @@
       - -t: 以伪终端模式运行
   - docker cp CONTAINER:SRC_PATH DEST_PATH|- 或 SRC_PATH|- CONTAINER:DEST_PATH
     - 解释: 在容器和宿主机之间复制文件/文件夹  
-      > CONTAINER:SRC_PATH DEST_PATH|-
-      > 容器ID:容器文件路径 宿主机目标路径
+      > CONTAINER:SRC_PATH DEST_PATH|-  
+      > 容器ID:容器文件路径 宿主机目标路径  
       > 使用 “-” 作为源以从stdin中读取tar归档文件, 并将其提取到容器中的目录目的地. 
 
-      > SRC_PATH|- CONTAINER:DEST_PATH 
-      > 宿主机文件路径|- 容器ID:容器目标路径
+      > SRC_PATH|- CONTAINER:DEST_PATH  
+      > 宿主机文件路径|- 容器ID:容器目标路径  
       > 使用 “-” 作为目标以流式传输tar的tar存档, 容器源到标准输出. 
     - 子命令:
       - -a: 归档模式 复制所有uid/gid信息
@@ -396,6 +396,7 @@
    - 格式 (支持 `$` 引用)
      ```
      ENV JAVA_HOME /opt/software/jdk
+     ENV PATH $PATH:$JAVA_HOME/bin
      ```
 8. `ADD` 将宿主机的文件复制到镜像中, 且 `ADD` 命令会自动处理 `URL` 和解压 `tar` 包.
 9. `COPY` 类似 `ADD` , 将宿主机的文件复制到镜像中.
