@@ -238,23 +238,23 @@
     - 解释: 启动一个容器
   - docker stop \${container id}
     - 解释: 停止一个容器
-  - docker resart
+  - docker resart \${container id}
     - 解释: 重启一个容器
   - docker kill \${container id}
-    - 解释: 强制停止一个容器
+    - 解释: 强制停止一个容器, 类比 `Linux`的 `kill` .
   - docker ps \${sub cmd}
-    - 解释: 同 `Linux`的 `ps`
+    - 解释: 查询容器, 同 `Linux`的 `ps` .
     - 子命令:
       - -a --all : 显示所有容器(默认只显示正在运行的容器)
       - -l --latest : 最后创建的容器
       - -n --last \${num} : 最后创建的\${num}的容器
       - -q : 只显示镜像ID
   - docker rm \${container id}
-    - 解释: 删除一个容器
+    - 解释: 删除一个容器, 类比 `Linux`的 `rm` .
     - 子命令:
       - -f 强制删除一个运行中的容器
-  - docker rmi \${image}
-    - 解释: 删除一个镜像
+  - docker rmi \${image id}
+    - 解释: 删除一个镜像, 类比 `Linux`的 `rm` .
     - 子命令:
       - -f 强制删除一个镜像
   - docker logs \${sub cmd} \${container id}
@@ -264,7 +264,7 @@
       - -f: 跟随最新日志
       - --tail number 显示多少条日志
   - docker top \${container id}
-    - 解释: 同 `Linux`的 `top`
+    - 解释: 查看docker运行情况, 类比 `Linux`的 `top`
   - docker inspect \${container id}
     - 解释: 查看容器内部细节
   - docker attach \${container id}
